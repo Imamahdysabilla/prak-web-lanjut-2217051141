@@ -5,15 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Kelas extends Model
+class UserModel extends Model
 {
     use HasFactory;
-    
-    protected $table = 'user';
-    protected $guarded = ['id'];
 
-    public function user()
+    protected $table = 'users'; // sesuaikan dengan nama tabel di database kamu
+
+    protected $fillable = [
+        'nama',
+        'email',
+        'kelas_id',
+    ];
+
+    public function getUser()
     {
-        return $this->belongsTo(UserModel::class, 'kelas_id');
+        return $this->all();
     }
 }

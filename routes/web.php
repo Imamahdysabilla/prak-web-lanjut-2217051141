@@ -2,22 +2,22 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Halaman utama langsung ke list user
+Route::get('/', [UserController::class, 'index']);
 
+// Jika ingin route profile aktif
 // Route::get('/profile', [ProfileController::class, 'profile']);
 
-Route::get('/profile/{nama}/{npm}/{kelas}',[ProfileController::class,
-'profile']);
+// Route untuk halaman form tambah user
+Route::get('/user/create', [UserController::class, 'create'])->name('user.create');
+
+// Route untuk menyimpan data user
+Route::post('/user', [UserController::class, 'store'])->name('user.store');
