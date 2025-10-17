@@ -46,9 +46,9 @@
 <body>
   <div class="profile-card">
     <div class="profile-img">👤</div>
-    <div class="profile-info">Nama: {{ $nama }}</div>
+    <div class="profile-info">Name: {{ $name }}</div>
     <div class="profile-info">Kelas: {{ $kelas }}</div>
-    <div class="profile-info">NPM: {{ $npm }}</div>
+    <div class="profile-info">email: {{ $email }}</div>
   </div>
 </body>
 </html>
